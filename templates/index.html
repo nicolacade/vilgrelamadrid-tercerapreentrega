@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>New Age - Start Bootstrap Theme</title>
+        <title>Web de Vilgre</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
@@ -22,7 +22,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" id="mainNav">
             <div class="container px-5">
-                <a class="navbar-brand fw-bold" href="#page-top">Start Bootstrap</a>
+                <a class="navbar-brand fw-bold" href="#page-top">Inicio</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="bi-list"></i>
@@ -51,8 +51,8 @@
                             <h1 class="display-1 lh-1 mb-3">{% block h1_header %}{% endblock h1_header %}</h1>
                             <p class="lead fw-normal text-muted mb-5">Launch your mobile app landing page faster with this free, open source theme from Start Bootstrap!</p>
                             <div class="d-flex flex-column flex-lg-row align-items-center">
-                                <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="assets/img/google-play-badge.svg" alt="..." /></a>
-                                <a href="#!"><img class="app-badge" src="assets/img/app-store-badge.svg" alt="..." /></a>
+                                <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src={% static "assets/img/google-play-badge.svg" %} alt="..." /></a>
+                                <a href="#!"><img class="app-badge" src={% static "assets/img/app-store-badge.svg" %} alt="..." /></a>
                             </div>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                                         <!-- * * This can be a video, image, or just about anything else.-->
                                         <!-- * * Set the max width of your media to 100% and the height to-->
                                         <!-- * * 100% like the demo example below.-->
-                                        <video muted="muted" autoplay="" loop="" style="max-width: 100%; height: 100%"><source src="assets/img/demo-screen.mp4" type="video/mp4" /></video>
+                                        <video muted="muted" autoplay="" loop="" style="max-width: 100%; height: 100%"><source src={% static "assets/img/demo-screen.mp4" %} type="video/mp4" /></video>
                                     </div>
                                 </div>
                             </div>
@@ -93,7 +93,7 @@
                 <div class="row gx-5 justify-content-center">
                     <div class="col-xl-8">
                         <div class="h2 fs-1 text-white mb-4">"An intuitive solution to a common problem that we all face, wrapped up in a single app!"</div>
-                        <img src="assets/img/tnw-logo.svg" alt="..." style="height: 3rem" />
+                        <img src={% static "assets/img/tnw-logo.svg" %} alt="..." style="height: 3rem" />
                     </div>
                 </div>
             </div>
@@ -164,7 +164,7 @@
                                         <!-- * * This can be a video, image, or just about anything else.-->
                                         <!-- * * Set the max width of your media to 100% and the height to-->
                                         <!-- * * 100% like the demo example below.-->
-                                        <video muted="muted" autoplay="" loop="" style="max-width: 100%; height: 100%"><source src="assets/img/demo-screen.mp4" type="video/mp4" /></video>
+                                        <video muted="muted" autoplay="" loop="" style="max-width: 100%; height: 100%"><source src={% static "assets/img/demo-screen.mp4" %} type="video/mp4" /></video>
                                     </div>
                                 </div>
                             </div>
@@ -205,8 +205,8 @@
             <div class="container px-5">
                 <h2 class="text-center text-white font-alt mb-4">Get the app now!</h2>
                 <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center">
-                    <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src="assets/img/google-play-badge.svg" alt="..." /></a>
-                    <a href="#!"><img class="app-badge" src="assets/img/app-store-badge.svg" alt="..." /></a>
+                    <a class="me-lg-3 mb-4 mb-lg-0" href="#!"><img class="app-badge" src={% static "assets/img/google-play-badge.svg" %} alt="..." /></a>
+                    <a href="#!"><img class="app-badge" src={% static "assets/img/app-store-badge.svg" %} alt="..." /></a>
                 </div>
             </div>
         </section>
