@@ -283,4 +283,5 @@ pyrightconfig.json
 .ionide
 #Ignora el entorno virtual
 venv/
+settings.py
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,django
