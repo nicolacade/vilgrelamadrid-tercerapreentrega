@@ -1,10 +1,10 @@
 from django.urls import path
 from Base import views
-from Base.views import agregar_clientes
+from Base.views import formularioClientes, mostrarListado
 
 
 urlpatterns = [
     path('', views.inicio),
-    path('AgregoCliente/', views.agregar_clientes),
-    path('formularioClientes', views.formularioClientes)
+    path('formularioClientes/', views.formularioClientes),
+    path('listadoClientes/', views.mostrarListado)
 ]

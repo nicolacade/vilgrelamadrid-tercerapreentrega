@@ -1,0 +1,15 @@
+<!-- mostrar_listado.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listado de Clientes</title>
+</head>
+<body>
+    <h1>Listado de Clientes</h1>
+    <ul>
+        {% for cliente in clientes %}
+            <li>{{ cliente.nombre_corto_cliente }} - {{ cliente.numero_cliente }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

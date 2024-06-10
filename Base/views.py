@@ -6,13 +6,6 @@ from .forms import ClientesFormulario
 def inicio (request):
     return render (request, 'inicio/template1.html')
 
-def agregar_clientes(self):
-    agregar_clientes = Clientes(nombre_corto_cliente = 'Nicolas' , numero_cliente = '121')
-    agregar_clientes.save()
-    MuestroPantalla = f'---> Nombre: {agregar_clientes.nombre_corto_cliente} --- Numero: {agregar_clientes.numero_cliente}'
-    
-    return HttpResponse(MuestroPantalla)
-
 def formularioClientes(request):
 
       if request.method == 'POST':
@@ -36,3 +29,7 @@ def formularioClientes(request):
             formulario= ClientesFormulario()
 
       return render(request, "inicio/formularioClientes.html", {"formulario":formulario})
+
+def mostrarListado(request):
+      clientes = Clientes.objects.all()
+      return render (request, 'inicio/mostrar_listado.html', {'clientes' : clientes})
