@@ -11,7 +11,7 @@
     <p style="color: red;"> Los datos ingresados son incorrectos</p>
 
     {% endif %}
-    <from action=" " method = 'POST'> {% csrf_token %}
+    <form action=" " method = 'POST'> {% csrf_token %}
     
         <table>
             {{ formulario.as_table }}
@@ -19,6 +19,6 @@
     
         <input type='submit', value='Enviar'>
     
-    </from>
+    </form>
 </body>
 </html>
