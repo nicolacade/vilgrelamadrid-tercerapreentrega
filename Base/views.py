@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from .models import Cliente
-from django.http import HttpResponse
 from .forms import ClientesFormulario, BuscarCliente, EditarCliente
 
 def inicio (request):
