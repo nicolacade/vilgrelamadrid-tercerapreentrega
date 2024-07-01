@@ -1,10 +1,10 @@
-from django.shortcuts import render
-from .models import Clientes
+from django.shortcuts import render, redirect
+from .models import Cliente
 from django.http import HttpResponse
-from .forms import ClientesFormulario
+from .forms import ClientesFormulario, BuscarCliente, EditarCliente
 
 def inicio (request):
-    return render (request, 'inicio/template1.html')
+    return render (request, 'inicio/inicio_mensaje.html')
 
 def formularioClientes(request):
 
@@ -18,11 +18,11 @@ def formularioClientes(request):
 
                   informacion = formulario.cleaned_data
 
-                  clientes = Clientes(nombre_corto_cliente=informacion['Nombre_cliente'], numero_cliente=informacion['Numero_cliente']) 
+                  clientes = Cliente(nombre_cliente=informacion['nombre_cliente'], apellido_cliente =informacion['apellido_cliente'], telefono_cliente=informacion['telefono_cliente']) 
 
                   clientes.save()
 
-                  return render(request, "inicio/template1.html") 
+                  return redirect("mostrar_listado") 
 
       else: 
 
@@ -31,5 +31,34 @@ def formularioClientes(request):
       return render(request, "inicio/formularioClientes.html", {"formulario":formulario})
 
 def mostrarListado(request):
-      clientes = Clientes.objects.all()
-      return render (request, 'inicio/mostrar_listado.html', {'clientes' : clientes})
+      formulario_clientes = BuscarCliente(request.GET)
+      if formulario_clientes.is_valid():
+            nombre = formulario_clientes.cleaned_data['nombre_cliente']
+            nombres = Cliente.objects.filter(nombre_cliente__icontains=nombre)
+      else:
+            nombres = Cliente.objects.all()
+      return render (request, 'inicio/mostrar_listado.html', {'clientes' : nombres , 'formulario_clientes' : formulario_clientes})
+
+def eliminar_clientes (request,id):
+      nombre = Cliente.objects.get(id=id)
+      nombre.delete()
+      return redirect('mostrar_listado')
+
+def editar_clientes(request,id):
+      nombre = Cliente.objects.get(id=id)
+      formulario = EditarCliente(initial={'nombre_cliente': nombre.nombre_cliente , 'apellido_cliente' : nombre.apellido_cliente, 'telefono_cliente': nombre.telefono_cliente})
+      if request.method == 'POST':
+            formulario = EditarCliente(request.POST)
+            if formulario.is_valid():
+                  info = formulario.cleaned_data 
+                  nombre.nombre_cliente = info ['nombre_cliente']
+                  nombre.apellido_cliente = info ['apellido_cliente']
+                  nombre.telefono_cliente = info ['telefono_cliente']
+                  nombre.save()
+                  return redirect('mostrar_listado')
+            
+      return render(request, 'inicio/editar_clientes.html' , {'formulario': formulario , 'nombre': nombre})
+
+def ver_cliente(request,id):
+      nombre = Cliente.objects.get(id=id)
+      return render (request, 'inicio/ver_cliente.html', {'nombre': nombre})

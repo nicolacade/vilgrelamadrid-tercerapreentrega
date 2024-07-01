@@ -1,11 +1,10 @@
 from django.db import models
 
-class Clientes(models.Model):
+class Cliente(models.Model):
 
-    nombre_corto_cliente = models.CharField(max_length=30)
-    numero_cliente = models.IntegerField()
-
-class InfoClientes(models.Model):
-    nombre =  models.CharField(max_length=30)
-    apellido =  models.CharField(max_length=30)
-    telefono =  models.IntegerField()
+    nombre_cliente = models.CharField(max_length=60)
+    apellido_cliente = models.CharField(max_length=60)
+    telefono_cliente = models.IntegerField()
+    
+    def __str__(self):
+        return f"{self.nombre_cliente} {self.apellido_cliente}"

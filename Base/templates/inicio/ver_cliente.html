@@ -1,0 +1,12 @@
+{% extends "baseweb.html" %}
+{% block h1_header %} 
+Detalle de: {{nombre.nombre_cliente}}
+{%endblock h1_header %} 
+{% block contenido %}
+<ul>
+    <li> Nombre: {{nombre.nombre_cliente}}</li>
+    <li> Apellido: {{nombre.apellido_cliente}}</li>
+    <li> Teléfono: {{nombre.telefono_cliente}}</li>
+</ul>
+{% endblock contenido %}
+
