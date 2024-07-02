@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Cliente
 from .forms import ClientesFormulario, BuscarCliente, EditarCliente
-
+from django.contrib.auth.decorators import login_required
 def inicio (request):
     return render (request, 'inicio/inicio_mensaje.html')
 
@@ -38,11 +38,13 @@ def mostrarListado(request):
             nombres = Cliente.objects.all()
       return render (request, 'inicio/mostrar_listado.html', {'clientes' : nombres , 'formulario_clientes' : formulario_clientes})
 
+@login_required
 def eliminar_clientes (request,id):
       nombre = Cliente.objects.get(id=id)
       nombre.delete()
       return redirect('mostrar_listado')
 
+@login_required
 def editar_clientes(request,id):
       nombre = Cliente.objects.get(id=id)
       formulario = EditarCliente(initial={'nombre_cliente': nombre.nombre_cliente , 'apellido_cliente' : nombre.apellido_cliente, 'telefono_cliente': nombre.telefono_cliente})
