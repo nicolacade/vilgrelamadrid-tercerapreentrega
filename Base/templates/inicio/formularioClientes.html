@@ -1,0 +1,17 @@
+{% extends "baseweb.html" %}
+{% block h1_header %}
+Formulario de Clientes
+{% endblock h1_header %}
+{% block contenido %}
+    {% if formulario.errors %}
+
+    <p style="color: red;"> Los datos ingresados son incorrectos</p>
+
+    {% endif %}
+    <form action={%url 'formulario_clientes' %} method = 'POST'> 
+        {% csrf_token %}
+            {{formulario}}
+        <input type='submit', value='Enviar'>
+    
+    </form>
+{% endblock contenido %}
