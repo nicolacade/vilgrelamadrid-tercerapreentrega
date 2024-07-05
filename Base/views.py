@@ -6,27 +6,16 @@ def inicio (request):
     return render (request, 'inicio/inicio_mensaje.html')
 
 def formularioClientes(request):
-
       if request.method == 'POST':
-
-            formulario = ClientesFormulario(request.POST)
-
+            formulario = ClientesFormulario(request.POST, request.FILES)
             print(formulario)
-
-            if formulario.is_valid: 
-
+            if formulario.is_valid(): 
                   informacion = formulario.cleaned_data
-
-                  clientes = Cliente(nombre_cliente=informacion['nombre_cliente'], apellido_cliente =informacion['apellido_cliente'], telefono_cliente=informacion['telefono_cliente']) 
-
+                  clientes = Cliente(nombre_cliente=informacion['nombre_cliente'], apellido_cliente =informacion['apellido_cliente'], telefono_cliente=informacion['telefono_cliente'], fecha_nacimiento = informacion ['fecha_nacimiento'], foto_perfil=informacion['foto_perfil'])
                   clientes.save()
-
                   return redirect("mostrar_listado") 
-
       else: 
-
             formulario= ClientesFormulario()
-
       return render(request, "inicio/formularioClientes.html", {"formulario":formulario})
 
 def mostrarListado(request):

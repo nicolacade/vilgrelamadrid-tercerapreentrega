@@ -1,0 +1,10 @@
+{% extends "baseweb.html" %}
+{% block h1_header %} 
+Fragancia {{aerosoles.fragancia}}
+{%endblock h1_header %} 
+{% block contenido %}
+<ul>
+    <li> Stock: {{aerosoles.stock}}</li>
+    <li> Fecha de Vencimiento: {{aerosoles.fecha_vencimiento}}</li>
+</ul>
+{% endblock contenido %}

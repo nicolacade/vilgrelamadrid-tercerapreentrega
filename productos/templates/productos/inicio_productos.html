@@ -1,0 +1,10 @@
+{% extends "baseweb.html" %}
+{% block h1_header %} 
+PRODUCTOS
+{%endblock h1_header %}
+{% block producto_1%}
+<a class="btn btn-warning rounded-pill px-3 mb-2 mb-lg-0" href={%url 'aerosoles' %}>AEROSOLES</a>
+{% endblock producto_1%}
+{% block producto_2%}
+<a class="btn btn-warning rounded-pill px-3 mb-2 mb-lg-0" href={%url 'textiles' %}>TEXTILES</a>
+{% endblock producto_2%}

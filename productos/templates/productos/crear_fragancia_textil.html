@@ -1,0 +1,12 @@
+{% extends "baseweb.html" %}
+{% block h1_header %}
+Ingrese una nueva fragancia
+{% endblock h1_header %}
+{% block contenido %}
+<form action={%url 'crear_fragancia_textil' %} method = 'POST'> 
+    {% csrf_token %}
+    {{form}}
+    <input type='submit', value='Agregar fragancia'>
+
+</form>
+{% endblock contenido %}

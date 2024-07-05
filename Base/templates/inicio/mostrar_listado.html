@@ -2,6 +2,9 @@
 {% block h1_header %}
 Listado de Clientes
 {% endblock h1_header %}
+{% block producto_2%}
+{% comment %} <a class="btn btn-warning rounded-pill px-3 mb-2 mb-lg-0" href={%url 'aerosoles' %}>AEROSOLES</a> {% endcomment %}
+{% endblock producto_2%}
 {% block contenido %}
 <a href={%url 'formulario_clientes' %}>Crear cliente nuevo</a>
 <form action= {% url "mostrar_listado" %} method="get">
@@ -14,7 +17,7 @@ Listado de Clientes
     {% if clientes %}
         <ul>
             {% for cliente in clientes %}
-                <li>Nombre: {{ cliente.nombre_cliente }} {{cliente.apellido_cliente}} - Teléfono: {{ cliente.telefono_cliente}}
+                <li>Cliente: {{ cliente.nombre_cliente }} {{cliente.apellido_cliente}} -->
                     <a href={% url "eliminar_clientes" cliente.id %} >Eliminar</a> | 
                     <a href={% url "editar_clientes" cliente.id %} >Editar</a> | 
                     <a href={% url "ver_clientes" cliente.id %} >Ver detalle</a>

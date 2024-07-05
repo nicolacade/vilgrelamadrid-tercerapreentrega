@@ -1,0 +1,14 @@
+{% extends "baseweb.html" %}
+{% block h1_header %}
+Eliminando Fragancia
+{% endblock h1_header %}
+{% block contenido %}
+<form action={%url 'eliminar_aerosol' aerosoles.id %} method = 'POST'> 
+    {% csrf_token %}
+    <p>
+        Desea confirmar el borrado de {{aerosoles}}?
+    </p>
+    <input type='submit', value='Confirmar eliminación'>
+
+</form>
+{% endblock contenido %}

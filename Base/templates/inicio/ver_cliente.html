@@ -2,11 +2,22 @@
 {% block h1_header %} 
 Detalle de: {{nombre.nombre_cliente}}
 {%endblock h1_header %} 
+{% block producto_2%}
+{% comment %} <a class="btn btn-warning rounded-pill px-3 mb-2 mb-lg-0" href={%url 'aerosoles' %}>AEROSOLES</a> {% endcomment %}
+{% endblock producto_2%}
 {% block contenido %}
 <ul>
     <li> Nombre: {{nombre.nombre_cliente}}</li>
     <li> Apellido: {{nombre.apellido_cliente}}</li>
     <li> Teléfono: {{nombre.telefono_cliente}}</li>
+    <li> Fecha de Nacimiento: {{nombre.fecha_nacimiento}}</li>
+    <li> Foto de Perfil: 
+        {% if nombre.foto_perfil %}
+            <img src="{{ nombre.foto_perfil.url }}" alt="Foto de perfil" height='80px'>
+        {% else %}
+            No hay foto de perfil disponible.
+        {% endif %}
+    </li>
 </ul>
 {% endblock contenido %}
 

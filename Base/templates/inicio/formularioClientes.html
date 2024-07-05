@@ -2,13 +2,16 @@
 {% block h1_header %}
 Formulario de Clientes
 {% endblock h1_header %}
+{% block producto_2%}
+{% comment %} <a class="btn btn-warning rounded-pill px-3 mb-2 mb-lg-0" href={%url 'aerosoles' %}>AEROSOLES</a> {% endcomment %}
+{% endblock producto_2%}
 {% block contenido %}
     {% if formulario.errors %}
 
     <p style="color: red;"> Los datos ingresados son incorrectos</p>
 
     {% endif %}
-    <form action={%url 'formulario_clientes' %} method = 'POST'> 
+    <form action={%url 'formulario_clientes' %} method = 'POST' enctype= 'multipart/form-data'> 
         {% csrf_token %}
             {{formulario}}
         <input type='submit', value='Enviar'>

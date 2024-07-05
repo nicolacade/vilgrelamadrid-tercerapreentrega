@@ -1,0 +1,24 @@
+{% extends "baseweb.html" %}
+{% block h1_header %}
+Textiles para telas
+{% endblock h1_header %}
+{% block producto_1%}
+{% comment %} <a class="btn btn-warning rounded-pill px-3 mb-2 mb-lg-0" href={%url 'aerosoles' %}>AEROSOLES</a> {% endcomment %}
+{% endblock producto_1%}
+{% block contenido %}
+<a href={%url 'crear_fragancia_textil' %}>Agregar fragancia</a>
+<h1>Listado de Fragancias</h1>
+{% if textiles %}
+    <ul>
+        {% for textil in textiles %}
+            <li>{{ textil }}
+                <a href={% url "eliminar_textil" textil.id %} >Eliminar</a> |
+                <a href={% url "editar_textil" textil.pk %} >Editar</a> |
+                <a href={% url "ver_textil" textil.id %} >Ver detalle</a> 
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+<p> No existen fragancias creadas hasta el momento</p>
+{% endif %}
+{% endblock %}
