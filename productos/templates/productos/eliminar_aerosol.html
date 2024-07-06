@@ -2,11 +2,14 @@
 {% block h1_header %}
 Eliminando Fragancia
 {% endblock h1_header %}
+{% block producto_1%}
+{% comment %} <a class="btn btn-warning rounded-pill px-3 mb-2 mb-lg-0" href={%url 'aerosoles' %}>AEROSOLES</a> {% endcomment %}
+{% endblock producto_1%}
 {% block contenido %}
 <form action={%url 'eliminar_aerosol' aerosoles.id %} method = 'POST'> 
     {% csrf_token %}
     <p>
-        Desea confirmar el borrado de {{aerosoles}}?
+        Quiere eliminar la faragancia: {{aerosoles}}?
     </p>
     <input type='submit', value='Confirmar eliminación'>
 

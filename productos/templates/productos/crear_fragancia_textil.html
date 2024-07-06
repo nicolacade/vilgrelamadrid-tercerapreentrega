@@ -2,6 +2,9 @@
 {% block h1_header %}
 Ingrese una nueva fragancia
 {% endblock h1_header %}
+{% block producto_1%}
+{% comment %} <a class="btn btn-warning rounded-pill px-3 mb-2 mb-lg-0" href={%url 'aerosoles' %}>AEROSOLES</a> {% endcomment %}
+{% endblock producto_1%}
 {% block contenido %}
 <form action={%url 'crear_fragancia_textil' %} method = 'POST'> 
     {% csrf_token %}

@@ -27,7 +27,7 @@ def registro(request):
         formulario = FormularioRegistro(request.POST)
         if formulario.is_valid():
             formulario.save()
-            return redirect('ver_perfil')    
+            return redirect('login')    
     return render(request, 'usuarios/registro.html', {'formulario' : formulario})
 
 @login_required

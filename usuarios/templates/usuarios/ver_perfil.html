@@ -9,7 +9,7 @@ Información de Perfil
 {% comment %} <a class="btn btn-warning rounded-pill px-3 mb-2 mb-lg-0" href={%url 'aerosoles' %}>AEROSOLES</a> {% endcomment %}
 {% endblock producto_2%}
 {% block contenido %}
-<form method="post">
+<form method="post" enctype= 'multipart/form-data'>
     {% csrf_token %}
     {% for field in formulario.visible_fields %}
         <div>

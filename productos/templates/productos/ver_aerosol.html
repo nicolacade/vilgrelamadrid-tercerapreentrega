@@ -1,7 +1,10 @@
 {% extends "baseweb.html" %}
 {% block h1_header %} 
 Fragancia {{aerosoles.fragancia}}
-{%endblock h1_header %} 
+{%endblock h1_header %}
+{% block producto_1%}
+{% comment %} <a class="btn btn-warning rounded-pill px-3 mb-2 mb-lg-0" href={%url 'aerosoles' %}>AEROSOLES</a> {% endcomment %}
+{% endblock producto_1%} 
 {% block contenido %}
 <ul>
     <li> Stock: {{aerosoles.stock}}</li>
