@@ -49,4 +49,4 @@ class CambiarPassword(LoginRequiredMixin, PasswordChangeView):
 def ver_perfil(request):
     usuario = request.user
     formulario = EditarPerfil(instance=usuario)
-    return render (request, 'usuarios/ver_perfil.html', {'formulario': formulario, 'usuario': usuario, 'avatar' : request.user.datosextra.avatar})
+    return render (request, 'usuarios/ver_perfil.html', {'formulario': formulario, 'usuario': usuario})
