@@ -27,7 +27,7 @@ def registro(request):
         formulario = FormularioRegistro(request.POST)
         if formulario.is_valid():
             formulario.save()
-            return redirect('login')    
+            return redirect('editar_perfil')    
     return render(request, 'usuarios/registro.html', {'formulario' : formulario})
 
 @login_required
@@ -45,3 +45,8 @@ def editar_perfil(request):
 class CambiarPassword(LoginRequiredMixin, PasswordChangeView):
     template_name = 'usuarios/cambiar_pass.html'
     success_url = reverse_lazy('editar_perfil')
+
+def ver_perfil(request):
+    usuario = request.user
+    formulario = EditarPerfil(instance=usuario)
+    return render (request, 'usuarios/ver_perfil.html', {'formulario': formulario, 'usuario': usuario})

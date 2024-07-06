@@ -1,0 +1,26 @@
+{% extends "baseweb.html" %}
+{% block h1_header %}
+Información de Perfil
+{% endblock h1_header %}
+{% block producto_1%}
+{% comment %} <a class="btn btn-warning rounded-pill px-3 mb-2 mb-lg-0" href={%url 'aerosoles' %}>AEROSOLES</a> {% endcomment %}
+{% endblock producto_1%}
+{% block producto_2%}
+{% comment %} <a class="btn btn-warning rounded-pill px-3 mb-2 mb-lg-0" href={%url 'aerosoles' %}>AEROSOLES</a> {% endcomment %}
+{% endblock producto_2%}
+{% block contenido %}
+<form method="post">
+    {% csrf_token %}
+    {% for field in formulario.visible_fields %}
+        <div>
+            <strong>{{ field.label }}</strong>: 
+            {% if field.value %}
+                {{ field.value }}
+            {% else %}
+                No disponible
+            {% endif %}
+        </div>
+    {% endfor %}
+</form>
+<a href={%url 'editar_perfil' %}>Actualizar Datos</a>
+{% endblock contenido %}

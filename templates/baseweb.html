@@ -30,13 +30,13 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
                         {% if request.user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link me-lg-0" href={%url 'editar_perfil'%}>
+                        <li class="nav-item"><a class="nav-link me-lg-0" href={%url 'ver_perfil'%}>
                             {% if request.user.datosextra.avatar %}
                             <img src={{request.user.datosextra.avatar.url}} alt='Avatar' height="30px">
                             {% endif %}
                         </li>
                         </a>
-                        <li class="navbar-nav ms-auto me-4 my-3 my-lg-0"><a class="btn btn rounded-pill px-2 mb-1 mb-lg-0" href={%url 'editar_perfil' %}>{{request.user.username}}</a></li>
+                        <li class="navbar-nav ms-auto me-4 my-3 my-lg-0"><a class="btn btn rounded-pill px-2 mb-1 mb-lg-0" href={%url 'ver_perfil' %}>{{request.user.username}}</a></li>
                         <form action={%url 'logout' %} method = 'POST'> 
                             {% csrf_token %}
                             <input type='submit' class="btn btn-secondary rounded-pill px-3 mb-2 mb-lg-0" value='Cerrar Sesión'>
@@ -100,16 +100,14 @@
         <main>
             {% block contenido %}{% endblock contenido %}
         </main>
+        {%block acerca%}
+        {%endblock acerca%}
         <!-- Footer-->
         <footer class="bg-black text-center py-5">
             <div class="container px-5">
                 <div class="text-white-50 small">
+                    <a href="acercademi">ACERCA DE MI</a>
                     <div class="mb-2">&copy; Your Website 2023. All Rights Reserved.</div>
-                    <a href="#!">Privacy</a>
-                    <span class="mx-1">&middot;</span>
-                    <a href="#!">Terms</a>
-                    <span class="mx-1">&middot;</span>
-                    <a href="#!">FAQ</a>
                 </div>
             </div>
         </footer>

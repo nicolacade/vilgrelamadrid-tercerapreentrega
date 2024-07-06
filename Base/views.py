@@ -5,6 +5,9 @@ from django.contrib.auth.decorators import login_required
 def inicio (request):
     return render (request, 'inicio/inicio_mensaje.html')
 
+def acercademi(request):
+    return render(request, 'inicio/acercademi.html')
+
 def formularioClientes(request):
       if request.method == 'POST':
             formulario = ClientesFormulario(request.POST, request.FILES)

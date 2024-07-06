@@ -1,10 +1,11 @@
 from django.urls import path
 from Base import views
-from Base.views import formularioClientes, mostrarListado, eliminar_clientes, editar_clientes, ver_cliente
+from Base.views import formularioClientes, mostrarListado, eliminar_clientes, editar_clientes, ver_cliente, acercademi
 
 
 urlpatterns = [
     path('', views.inicio, name= 'inicio'),
+    path('acercademi', views.acercademi, name= 'acercademi'),
     path('formularioClientes/', views.formularioClientes, name='formulario_clientes'),
     path('listadoClientes/', views.mostrarListado, name= 'mostrar_listado'),
     path('formularioClientes/eliminar/<int:id>/', views.eliminar_clientes, name= 'eliminar_clientes'),
